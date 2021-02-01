@@ -11,6 +11,12 @@ app.init = function() {
     this._router = undefined;
 };
 
+app.lazyrouter = function lazyrouter() {
+    if(!this._router) {
+        this._router = new Router({});
+    }
+}
+
 mthods.forEach(function(method) {
     app[method] = function(path) {
         this.lazyrouter();
